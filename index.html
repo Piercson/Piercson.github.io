@@ -8,42 +8,63 @@
     <meta name="author" content="Piercson Thomas">
     <title>Piercson Thomas</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato">
   </head>
   <body>
-    <header>
+    <header id="header">
       <div class="container">
         <div id="branding">
-          <h1><span class="highlight">Piercson</span> Thomas</h1>
+          <img src="assests/Bubble_0.png" class="header_img">
+          <div id="branding_text">
+              <h1><span class="highlight">Piercson</span></h1>
+          </div>
         </div>
         <nav>
+          <img class="header_img" src="assests/Bubble_1.png">
           <ul>
             <li class ="current"> <a href="index.html">Home<a/></li>
-            <li> <a href="Resume.html">Resume<a/></li>
-            <li> <a href="interest.html">Interests<a/></li>
+            <li> <a href="https://twitter.com/_Piercson" target="_blank">Twitter<a/></li>
+            <li> <a href="https://github.com/Piercson" target="_blank">Github<a/></li>
           </ul>
         </nav>
       </div>
     </header>
-
-      <section id= "picture">
-        <div class="container">
-          <h1>My Name is Piercson And I love Comp Sci</h1>
-          <p>I hope to be successful one day</p>
+  <section>
+    <div class="section_title">
+      <h1>Projects</h1>
+    </div>
+    <div class="card">
+      <a href="MonsterHunter.html" target="_blank" class="card_a">
+        <div class="card_container">
+          <header class="card_title">
+              <p>Monster Hunter Analysis</p>
+              <hr class='card_hr'>
+          </header>
+          <div class="card_info_container">
+            <div class="card_desc">
+              <p class="card_desc">
+                Analysis of monsters from the series Monster Hunter from Capcom.
+                <br> Made in jupyter notebook using python.
+                <hr>
+                <br> Accomplishments:
+              </p>
+              <ul class="card_list" style="list-style-type:circle">
+                <li>Collected data for the project</li>
+                <li>Figure for Distribution of monsters throughtout the series</li>
+                <li>Figure for Distribution of monster types</li>
+                <li>Calculated the time between base and ultimate releases</li>
+                <li>Looked into the differences between base and ultimate releases</li>
+                <li>Checked if directors of the series favor thier own monsters</li>
+              </ul>
+              <p>Completed: August 28/2021
+                <br> Edited: January 10/2022</p>
+            </div>
+            <img src="assests/card_imgs/amt_monsters.png" class="card_img">
+          </div>
         </div>
-      </section>
-      <section id="email">
-        <div class="container">
-          <h1>Feel free to Email</h1>
-          <form>
-            <input type="email" placeholder="Enter Email"/>
-            <button type="submit" class="button_1">Email Me!</button>
-          </form>
-        </div>
-      </section>
-
-      <footer>
-        <p>Piercson Thomas, Copyright &copy; 2020</p>
-      </footer>
-
+      </a>
+    </div>
+  </section>
   </body>
 </html>
