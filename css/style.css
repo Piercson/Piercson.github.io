@@ -115,6 +115,7 @@ section header{
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  color: inherit;
 }
 /* Add some padding inside the card container */
 .card_container {
@@ -123,6 +124,9 @@ section header{
 .card_a{
   text-decoration: none;
   color: inherit;
+}
+:hover{
+  color: #000000;
 }
 
 .card_hr{
@@ -135,6 +139,7 @@ section header{
 .card_list{
   text-align: left;
   font-size: 1rem;
+  color: inherit;
 }
 .card_info_container{
   display: flex;
@@ -146,6 +151,7 @@ section header{
   margin-left: 10px;
   margin-bottom: 10px;
   font-size: 1rem;
+  color: inherit;
 }
 .card_img{
   float: right;
