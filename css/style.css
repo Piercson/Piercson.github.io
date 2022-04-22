@@ -1,20 +1,51 @@
+body *,
+body *:before,
+body *:after {
+    -webkit-box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+}
 body{
   font-family: Lato, serif;
   font-size: 1rem;
   height: 100%;
   width: 100%;
+  /* position:relative; */
   padding: 0;
   margin: 0;
   background-color: #f1f0ec;
+  box-sizing: initial;
 }
-/* Global*/
-.container{
-  width: 100%;
-  margin: auto;
-  overflow: auto;
+header a{
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
 }
-/*  Header */
-#header{
+#branding{
+}
+#name {
+  font-size: 8vw;
+}
+.header_img{
+  width: 10vw;
+}
+header a:hover{
+  color: #cccccc;
+  font-weight: bold;
+}
+/* Nav */
+.flex-column{
+  align-items: center;
+  vertical-align: middle;
+}
+.nav-link{
+  color: #ffffff;
+  display: flex;
+}
+.nav-link:hover{
+  color: #ffffff;
+}
+.container-fluid{
   margin: 0px 0px 0px 0px;
   background: #79A8D2;
   color: #ffffff;
@@ -23,59 +54,11 @@ body{
   width: 100%;
   border-bottom: #9FC1DF 10px solid;
 }
-header ul{
-  margin: 0;
-  padding: 0;
-}
-header a{
+.navbar-light .navbar-nav .nav-link.active{
   color: #ffffff;
-  text-decoration: none;
-  text-transform: uppercase;
 }
-header ul{
-  vertical-align: middle;
-}
-header li{
-  float: left;
-  text-align: center;
-  display: inline-block;
-  padding: 15px 20px 0 20px;
-}
-
-header #branding{
-  float: left;
-  color: #ffffff;
-  display: flex;
-  max-width: 400px;
-  width: 100%;
-  margin-top: 10px;
-  align-items: center;
-  justify-content: center
-}
-header #branding_text{
-  font-size: 2rem;
-}
-header nav{
-  float: right;
-  display: flex;
-  vertical-align: middle;
-  align-items: center;
-  text-align: center;
-  height: 170px;
-  margin-top: 10px;
-}
-.header_img{
-  vertical-align: middle;
-  width: 100px;
-}
-header .highlight, header .current a{
-  color: #ffffff;
-  font-weight: bold;
-}
-
-header a:hover{
-  color: #cccccc;
-  font-weight: bold;
+nav{
+  width: 100%
 }
 nav a:hover{
   color: #cccccc;
@@ -116,19 +99,16 @@ section header{
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   color: inherit;
+  text-decoration: none;
 }
 /* Add some padding inside the card container */
 .card_container {
   padding: 2px 16px;
 }
-.card_a{
+.card_a, .card_a:hover{
   text-decoration: none;
   color: inherit;
 }
-:hover{
-  color: #000000;
-}
-
 .card_hr{
   width:30%;
   margin-left: auto;
@@ -142,7 +122,7 @@ section header{
   color: inherit;
 }
 .card_info_container{
-  display: flex;
+  /* display: flex; */
   margin-top: 15px;
   margin-left: 15px;
 }
@@ -161,18 +141,6 @@ section header{
   height: auto;
   border: 3px solid #555;
   border-radius: 10px;
-}
-.container-fluid{
-  margin: 0px 0px 0px 0px;
-  background: #79A8D2;
-  color: #ffffff;
-  padding-top: 30px;
-  min-height: 70px;
-  width: 100%;
-  border-bottom: #9FC1DF 10px solid;
-}
-.navbar-light .navbar-nav .nav-link.active{
-  color: #ffffff;
 }
 @media screen and (max-width: 600px){
   section {
