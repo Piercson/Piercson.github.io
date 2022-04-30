@@ -23,11 +23,20 @@ header a{
 }
 #branding{
 }
-#name {
-  font-size: 6vw;
+#name_pre {
+  font-size: 3vw;
+}
+#name_suf {
+  font-size: 2vw;
 }
 .header_img{
   width: 6vw;
+  padding-left: 2rem;
+}
+.link_img{
+  width: 1vw;
+  height: 1vw;
+  margin: auto;
 }
 header a:hover{
   color: #cccccc;
@@ -35,7 +44,7 @@ header a:hover{
 }
 /* Nav */
 .nav-link{
-  font-size: 1vw;
+  font-size: 1.5vw;
 }
 .flex-column{
   align-items: center;
@@ -101,17 +110,8 @@ section header{
   font-weight: bold;
 }
 #info {
-  /* Add shadows to create the "card" effect */
-  width: 80%;
   margin: auto;
-  color: #3a4755;
-  font-size: 1rem;
-  background-color: #ffffff;
-  box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  border-radius: 10px;
-  text-decoration: none;
-  padding: 10px 20px;
+  font-size: 0.80rem;
 }
 /* Card Class*/
 .card {

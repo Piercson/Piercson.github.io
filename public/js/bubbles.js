@@ -297,7 +297,7 @@ class Bubble {
     this.height = this.randomNumber(80, 20);
     this.width = this.height;
 
-    this.posY = this.randomNumber(max_y, max_y - 200);
+    this.posY = this.randomNumber(max_y, min_y + 400);
     this.posX = this.randomNumber(max_x - this.height, min_x);
 
     this.bubbleSpan.style.top = this.posY + "px";
