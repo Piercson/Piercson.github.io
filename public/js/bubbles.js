@@ -240,11 +240,15 @@ var ready = (function(){
 ready(function() {
   // If not mobile, Make bubbles!
   if (innerWidth > 479) {
-    setInterval(function () {
-      requestAnimationFrame(() => new Bubble());
-    }, 3000);
+      setInterval(function () {
+        // var rnd = Math.floor(Math.random() * 2);
+        // if(rnd == 1){
+          requestAnimationFrame(() => new Bubble());
+        // }
+      }, 1000);
   }
 });
+// Adjust bubble canvas when scrolling
 var ticking = false;
 document.addEventListener('scroll', function(e) {
   lastKnownScrollPosition = window.scrollY;
@@ -256,10 +260,10 @@ document.addEventListener('scroll', function(e) {
       var top = (window.pageYOffset || document.documentElement.scrollTop)  - (document.documentElement.clientTop || 0);
       if(top >= min_y){
         min_y = top;
-        max_y = top + innerHeight - 20;
+        max_y = top + innerHeight;
       }else{
         min_y = document.getElementById("navbar").offsetHeight;
-        max_y = innerHeight - 20;
+        max_y = innerHeight;
       }
       ticking = false;
     });
@@ -267,10 +271,18 @@ document.addEventListener('scroll', function(e) {
     ticking = true;
   }
 });
-min_x = 20;
-max_x = innerWidth * 0.2;
-min_y = document.getElementById("navbar").offsetHeight;
-max_y = innerHeight;
+// Bubble Canvas info
+var min_x = 30;
+var max_x = innerWidth * 0.225;
+var min_y = document.getElementById("navbar").offsetHeight;
+var max_y = innerHeight;
+var bubble_id = 0;
+const offset = 50;
+window.addEventListener('resize', function() {
+  max_x = innerWidth * 0.2;
+  min_y = document.getElementById("navbar").offsetHeight;
+  console.log(min_x, max_x)
+});
 class Bubble {
   constructor() {
     this.bubbleSpan = undefined;
@@ -279,18 +291,18 @@ class Bubble {
         ${220},
         ${225},
         ${228},
-        ${this.randomNumber(0.1, 1)})`;
+        ${Math.random()})`;
     this.gonna_pop = false;
     // setting height and width of the bubble
     this.height = this.randomNumber(80, 20);
     this.width = this.height;
 
-    this.posY = this.randomNumber(max_y, min_y + this.height);
+    this.posY = this.randomNumber(max_y, max_y - 200);
     this.posX = this.randomNumber(max_x - this.height, min_x);
 
     this.bubbleSpan.style.top = this.posY + "px";
     this.bubbleSpan.style.left = this.posX + "px";
-
+    this.id = bubble_id++;
     // this.bubbleEnd.call(this.bubbleSpan, this.randomNumber(5000, 3000));
   }
 
@@ -305,16 +317,28 @@ class Bubble {
 
   handlePosition() {
     // positioning the bubble in different random X and Y
-    var min_height = this.posY - 100;
+    var min_height = this.posY - 30;
     if(min_height <= min_y){
       min_height = min_y;
       if(!this.gonna_pop){
-        this.bubbleEnd.call(this.bubbleSpan, this.randomNumber(2000, 1000));
+        this.bubbleEnd.call(this.bubbleSpan, this.randomNumber(5000, 3000));
         this.gonna_pop = true;
       }
     }
-    var random_y = this.randomNumber(this.posY, min_height);
-    var random_x = this.randomNumber(max_x - this.height, min_x);
+    // var random_y = this.randomNumber(this.posY, min_height);
+    var random_y = min_height;
+    var random_x;
+    // Direction of Bubble
+    if(this.id % 3 == 0){
+      // Right
+      var min_cord = this.posX - offset;
+      random_x = this.randomNumber(max_x - this.height, this.posX - offset);
+    }else if (this.id % 3 == 1) {
+      // Left
+      random_x = this.randomNumber(this.posX + offset, min_x);
+    }else{
+      random_x = this.randomNumber(max_x - this.height, min_x);
+    }
     this.bubbleSpan.style.backgroundColor = this.color;
     this.bubbleSpan.style.height = this.height + "px";
     this.bubbleSpan.style.width = this.height + "px";
@@ -333,14 +357,6 @@ class Bubble {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  randomColor() {
-    return `rgba(
-        ${this.randomNumber(0, 255)},
-        ${this.randomNumber(0, 255)},
-        ${this.randomNumber(0, 255)},
-        ${this.randomNumber(0.1, 1)})`;
-  }
-
   bubbleEnd(removingTime = 0) {
     setTimeout(
       () => {
@@ -351,7 +367,9 @@ class Bubble {
 
     setTimeout(() => {
       requestAnimationFrame(() => this.remove());
-      requestAnimationFrame(() => new Bubble());
+      if(Math.floor(Math.random() * 4) == 1){
+        new Bubble();
+      }
     }, removingTime);
   }
 }
