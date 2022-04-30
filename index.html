@@ -8,12 +8,13 @@
     <meta name="author" content="Piercson Thomas">
     <title>Piercson Thomas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./public/css/style.css">
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
   </head>
   <body>
-    <nav>
+    <nav id="navbar">
       <div class="container-fluid no-padding">
         <div class="row">
           <div class="col-2 col-md-2 col-sm-2 col-xs-1">
@@ -45,44 +46,104 @@
       </div>
     </nav>
     <section>
+      <div id="info">
+        This is a personal website to showcase project I do in my free time. I do these projects because I interested in the idea or to practice new skills.
+        <br>
+        My goal is to work and gain experience in all forms of working with data inorder to help people with misinformation.
+        <br>
+
+      </div>
+    </section>
+    <section>
       <div class="section_title">
         <h1>Projects</h1>
       </div>
-        <div class="card">
-          <a class="card_a" href="MonsterHunter.html" target="_blank">
-            <div class="row">
-              <div class="col-12">
-                <header class="card_title">
-                  <p>Monster Hunter Analysis</p>
-                  <hr class='card_hr'>
-                </header>
-              </div>
-              <div class="col-12 col-md-12 col-lg-12 col-xl-6">
+      <div class="section_info">
+        You can click the Project Cards to open the coressponding Notebooks
+      </div>
+    </section>
+      <!-- Monster HUnter Project -->
+      <section>
+          <div class="card">
+            <a class="card_a" href="MonsterHunter.html" target="_blank">
+              <div class="row">
+                <div class="col-12">
+                  <header class="card_title">
+                    <p>Monster Hunter Analysis</p>
+                    <hr class='card_hr'>
+                  </header>
+                </div>
+                <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                  <p class="card_desc">
+                    Analysis of monsters from the series Monster Hunter from Capcom.
+                    <br> Made in jupyter notebook using python.
+                    <hr style="width:80%; margin:auto;">
+                    Accomplishments:
+                  </p>
+                  <ul class="card_list" style="list-style-type:circle">
+                    <li>Collected data for the project</li>
+                    <li>Figure for Distribution of monsters throughtout the series</li>
+                    <li>Figure for Distribution of monster types</li>
+                    <li>Calculated the time between base and ultimate releases</li>
+                    <li>Looked into the differences between base and ultimate releases</li>
+                    <li>Checked if directors of the series favor their own monsters</li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                  <img src="assests/card_imgs/amt_monsters.png" class="card_img">
+                </div>
                 <p class="card_desc">
-                  Analysis of monsters from the series Monster Hunter from Capcom.
-                  <br> Made in jupyter notebook using python.
-                  <hr>
-                  <br> Accomplishments:
-                </p>
-                <ul class="card_list" style="list-style-type:circle">
-                  <li>Collected data for the project</li>
-                  <li>Figure for Distribution of monsters throughtout the series</li>
-                  <li>Figure for Distribution of monster types</li>
-                  <li>Calculated the time between base and ultimate releases</li>
-                  <li>Looked into the differences between base and ultimate releases</li>
-                  <li>Checked if directors of the series favor thier own monsters</li>
-                </ul>
-                <p class="card_desc"> Completed: August 28/2021
+                  <br>
+                  Completed: August 28/2021
                   <br> Edited: January 10/2022 </p>
               </div>
-              <div class="col-12 col-md-12 col-lg-12 col-xl-6">
-                <img src="assests/card_imgs/amt_monsters.png" class="card_img">
-              </div>
+            </a>
+          </div>
+        </section>
+        <!-- Spam Detection -->
+        <section>
+            <div class="card">
+              <a class="card_a" href="" target="_blank">
+                <div class="row">
+                  <div class="col-12">
+                    <header class="card_title">
+                      <p>SMS Spam Detection</p>
+                      <hr class='card_hr'>
+                    </header>
+                  </div>
+                  <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                    <p class="card_desc">
+                      Experimenting with different classifiers on detecting if a SMS is spam or ham!
+                      <br> Data was found on Kaggle.
+                      <br> Made in Jupyter Notebook using Python.
+                      <hr style="width:80%; margin:auto;">
+                      Accomplishments:
+                    </p>
+                    <ul class="card_list" style="list-style-type:circle">
+                      <li>Went step by step explained the process of creating various classifiers</li>
+                      <li>Cleaned text by removing stopping words and puncutation</li>
+                      <li>Tranformed text data into integers to use as features for the classifiers</li>
+                      <li>Used, Multinomial Naive Bays, Support Vector Machine and Linear Regression from ScikitLearn</li>
+                      <li>Created a Recurrant Nueral Network</li>
+                      <li>Evaluated performace by analyzing the classification report and heatmaps</li>
+                    </ul>
+                  </div>
+                  <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                    <img src="assests/card_imgs/spam_word.png" class="card_img">
+                  </div>
+                  <p class="card_desc">
+                    <br>
+                    WIP :)
+                    <!-- <br> Edited: January 10/2022 </p> -->
+                </div>
+              </a>
             </div>
-          </a>
-        </div>
-    </section>
+          </section>
+      <div id="app">
+      </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="public/js/bubbles.js"></script>
   </body>
 </html>

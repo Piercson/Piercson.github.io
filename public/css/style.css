@@ -24,10 +24,10 @@ header a{
 #branding{
 }
 #name {
-  font-size: 8vw;
+  font-size: 7vw;
 }
 .header_img{
-  width: 10vw;
+  width: 8vw;
 }
 header a:hover{
   color: #cccccc;
@@ -81,9 +81,34 @@ section {
   border-radius: 100px;
   box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.2);
 }
+.section_info{
+  color: #3a4755;
+  margin: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.25rem;
+  background-color: #ffffff;
+  width: 90%;
+  min-width: 12.5rem;
+  border-radius: 100px;
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.2);
+}
 section header{
   font-size: 1.25rem;
   font-weight: bold;
+}
+#info {
+  /* Add shadows to create the "card" effect */
+  width: 80%;
+  margin: auto;
+  color: #3a4755;
+  font-size: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 10px 20px;
 }
 /* Card Class*/
 .card {
@@ -93,7 +118,7 @@ section header{
   transition: 0.3s;
   border-radius: 50px;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 10px 10px 10px 10px;
 }
 /* On mouse-over, add a deeper shadow */
 .card:hover {
@@ -116,8 +141,13 @@ section header{
   border: 2px solid;
   border-radius: 5px;
 }
+.card_title{
+  padding-top: 1rem;
+  font-size: 2rem;
+}
 .card_list{
   text-align: left;
+  padding-left: 6rem;
   font-size: 1rem;
   color: inherit;
 }
@@ -127,20 +157,26 @@ section header{
   margin-left: 15px;
 }
 .card_desc{
-  text-align: left;
+  text-align: center;
   margin-left: 10px;
   margin-bottom: 10px;
   font-size: 1rem;
   color: inherit;
 }
 .card_img{
-  float: right;
-  margin-left: 150px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  width: 100%;
+  width: 80%;
   height: auto;
   border: 3px solid #555;
   border-radius: 10px;
+}
+.bubble {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: linear 2s, transform 0.2s;
 }
 @media screen and (max-width: 600px){
   section {
