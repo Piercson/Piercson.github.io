@@ -245,7 +245,7 @@ ready(function() {
         // if(rnd == 1){
           requestAnimationFrame(() => new Bubble());
         // }
-      }, 1000);
+      }, 750);
       var n_vis_changes = 0;
       document.addEventListener("visibilitychange", function(){
         if(n_vis_changes % 2 == 0){
@@ -256,40 +256,40 @@ ready(function() {
             // if(rnd == 1){
               requestAnimationFrame(() => new Bubble());
             // }
-          }, 1000);
+          }, 750);
         }
         n_vis_changes += 1;
       });
   }
 });
 // Adjust bubble canvas when scrolling
-var ticking = false;
-document.addEventListener('scroll', function(e) {
-  lastKnownScrollPosition = window.scrollY;
-
-  if (!ticking) {
-    window.requestAnimationFrame(function() {
-      innerHeight = window.innerHeight;
-      innerWidth = window.innerWidth;
-      var top = (window.pageYOffset || document.documentElement.scrollTop)  - (document.documentElement.clientTop || 0);
-      if(top >= min_y){
-        min_y = top;
-        max_y = top + innerHeight;
-      }else{
-        min_y = document.getElementById("navbar").offsetHeight;
-        max_y = innerHeight;
-      }
-      ticking = false;
-    });
-
-    ticking = true;
-  }
-});
+// var ticking = false;
+// document.addEventListener('scroll', function(e) {
+//   lastKnownScrollPosition = window.scrollY;
+//
+//   if (!ticking) {
+//     window.requestAnimationFrame(function() {
+//       innerHeight = window.innerHeight;
+//       innerWidth = window.innerWidth;
+//       var top = (window.pageYOffset || document.documentElement.scrollTop)  - (document.documentElement.clientTop || 0);
+//       if(top >= min_y){
+//         min_y = top;
+//         max_y = top + innerHeight;
+//       }else{
+//         min_y = document.getElementById("navbar").offsetHeight;
+//         max_y = innerHeight;
+//       }
+//       ticking = false;
+//     });
+//
+//     ticking = true;
+//   }
+// });
 // Bubble Canvas info
-var min_x = 30;
-var max_x = innerWidth * 0.225;
-var min_y = document.getElementById("navbar").offsetHeight;
-var max_y = innerHeight - 100;
+// var min_x = 30;
+// var max_x = innerWidth * 0.225;
+// var min_y = document.getElementById("navbar").offsetHeight;
+// var max_y = innerHeight - 100;
 var bubble_id = 0;
 const offset = 50;
 window.addEventListener('resize', function() {
@@ -299,30 +299,43 @@ window.addEventListener('resize', function() {
 });
 class Bubble {
   constructor() {
+    // Bounding box for bubble to appear in
+    this.id = bubble_id++;
     this.bubbleSpan = undefined;
-    this.handleNewBubble();
     this.color = `rgba(
         ${220},
         ${225},
         ${228},
         ${Math.random()})`;
     this.gonna_pop = false;
-    // setting height and width of the bubble
     this.height = this.randomNumber(80, 20);
-    this.width = this.height;
-
-    this.posY = this.randomNumber(max_y, min_y + 400);
-    this.posX = this.randomNumber(max_x - this.height, min_x);
-
-    this.bubbleSpan.style.top = this.posY + "px";
-    this.bubbleSpan.style.left = this.posX + "px";
-    this.id = bubble_id++;
-    // this.bubbleEnd.call(this.bubbleSpan, this.randomNumber(5000, 3000));
+    // setting height and width of the bubble
+    this.handleNewBubble();
+    this.bubbleSpan.style.zIndex = -2;
   }
 
   // creates and appends a new bubble in the DOM
   handleNewBubble() {
+    // Set Random Pos
+    var min_x = 30;
+    var max_x = window.innerWidth * 0.5;
+    if(this.bubble_id % 2 == 0){
+      max_x = window.innerWidth * 0.225;
+    }
+    var min_y = document.getElementById("navbar").offsetHeight;
+    var max_y = innerHeight - 100;
+    var top = (window.pageYOffset || document.documentElement.scrollTop)  - (document.documentElement.clientTop || 0)
+    if( top >= min_y){
+      min_y = top;
+    }
     this.bubbleSpan = document.createElement("span");
+    this.width = this.height;
+
+    this.posY = this.randomNumber(max_y, min_y + 400);
+    this.posX = this.randomNumber(max_x - this.height, min_x);
+    this.bubbleSpan.style.top = this.posY + "px";
+    this.bubbleSpan.style.left = this.posX + "px";
+
     this.bubbleSpan.classList.add("bubble");
     root.append(this.bubbleSpan);
     this.handlePosition();
@@ -330,28 +343,35 @@ class Bubble {
   }
 
   handlePosition() {
+    // Get positions the bubble can go
+    var min_y = document.getElementById("navbar").offsetHeight;
+    var top = (window.pageYOffset || document.documentElement.scrollTop)  - (document.documentElement.clientTop || 0)
+    if( top >= min_y){
+      min_y = top;
+    }
     // positioning the bubble in different random X and Y
-    var min_height = this.posY - 30;
-    if(min_height <= min_y){
-      min_height = min_y;
+    var max_height = this.posY - 30;
+    if(max_height <= min_y){
+      max_height = min_y;
       if(!this.gonna_pop){
         this.bubbleEnd.call(this.bubbleSpan, this.randomNumber(5000, 3000));
         this.gonna_pop = true;
       }
     }
+    const offset = 50;
     // var random_y = this.randomNumber(this.posY, min_height);
-    var random_y = min_height;
+    var random_y = max_height;
+    // console.log(random_y, min_height, this.posY);
     var random_x;
     // Direction of Bubble
     if(this.id % 3 == 0){
       // Right
-      var min_cord = this.posX - offset;
-      random_x = this.randomNumber(max_x - this.height, this.posX - offset);
+      random_x = this.randomNumber(this.posX + offset, this.posX - (offset/2));
     }else if (this.id % 3 == 1) {
       // Left
-      random_x = this.randomNumber(this.posX + offset, min_x);
+      random_x = this.randomNumber(this.posX + (offset/2), this.posX  - offset);
     }else{
-      random_x = this.randomNumber(max_x - this.height, min_x);
+      random_x = this.randomNumber(this.posX + (offset/2), this.posX - offset);
     }
     this.bubbleSpan.style.backgroundColor = this.color;
     this.bubbleSpan.style.height = this.height + "px";
@@ -381,7 +401,7 @@ class Bubble {
 
     setTimeout(() => {
       requestAnimationFrame(() => this.remove());
-      if(Math.floor(Math.random() * 4) == 1){
+      if(Math.floor(Math.random() * (4 - 1 + 1) + 1) == 1){
         new Bubble();
       }
     }, removingTime);

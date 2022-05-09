@@ -8,7 +8,7 @@
 
 .card_container .card {
   position: relative;
-  height : 215px;
+  height : 13.438rem;
   background-color : #fff;
   margin : 30px 10px;
   padding : 20px 15px;
@@ -44,7 +44,7 @@
   padding : 10px 15px;
   color : #111;
   text-align : center;
-  font-size: 15px;
+  font-size: 0.938rem;
 
   visibility : hidden;
   opacity : 0;

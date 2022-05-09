@@ -4,7 +4,7 @@
   left: 0;
   border-radius: 50%;
   cursor: pointer;
-  transition: linear 3s, transform .2s;
+  transition: linear 3s, transform .5s;
 }
 .bubble--bust {
   transform: scale(1.3);
