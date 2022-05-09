@@ -82,7 +82,8 @@ nav a:hover{
 }
 /* Section */
 section {
-  width: 55%;
+  width: 75.5%;
+  padding-left: 22.5%;
   margin: auto;
   text-align: center;
   padding-top: 1rem;
@@ -114,8 +115,7 @@ section header{
   font-weight: bold;
 }
 /* Card Class*/
-.card {
-  /* Add shadows to create the "card" effect */
+/* .card {
   color: #3a4755;
   box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.2);
   transition: 0.3s;
@@ -123,13 +123,11 @@ section header{
   text-decoration: none;
   padding: 10px 10px 10px 10px;
 }
-/* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   color: inherit;
   text-decoration: none;
 }
-/* Add some padding inside the card container */
 .card_container {
   padding: 2px 16px;
 }
@@ -155,7 +153,6 @@ section header{
   color: inherit;
 }
 .card_info_container{
-  /* display: flex; */
   margin-top: 15px;
   margin-left: 15px;
 }
@@ -172,7 +169,7 @@ section header{
   height: auto;
   border: 3px solid #555;
   border-radius: 10px;
-}
+} */
 @media screen and (max-width: 600px){
   section {
     width: 70%;

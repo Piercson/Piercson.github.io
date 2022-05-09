@@ -240,12 +240,26 @@ var ready = (function(){
 ready(function() {
   // If not mobile, Make bubbles!
   if (innerWidth > 479) {
-      setInterval(function () {
+      var bubbleInterval = setInterval(function () {
         // var rnd = Math.floor(Math.random() * 2);
         // if(rnd == 1){
           requestAnimationFrame(() => new Bubble());
         // }
       }, 1000);
+      var n_vis_changes = 0;
+      document.addEventListener("visibilitychange", function(){
+        if(n_vis_changes % 2 == 0){
+          clearInterval(bubbleInterval);
+        }else{
+          bubbleInterval = setInterval(function () {
+            // var rnd = Math.floor(Math.random() * 2);
+            // if(rnd == 1){
+              requestAnimationFrame(() => new Bubble());
+            // }
+          }, 1000);
+        }
+        n_vis_changes += 1;
+      });
   }
 });
 // Adjust bubble canvas when scrolling
@@ -275,13 +289,13 @@ document.addEventListener('scroll', function(e) {
 var min_x = 30;
 var max_x = innerWidth * 0.225;
 var min_y = document.getElementById("navbar").offsetHeight;
-var max_y = innerHeight;
+var max_y = innerHeight - 100;
 var bubble_id = 0;
 const offset = 50;
 window.addEventListener('resize', function() {
-  max_x = innerWidth * 0.2;
+  var n_innerWidth = window.innerWidth
+  max_x = n_innerWidth * 0.225;
   min_y = document.getElementById("navbar").offsetHeight;
-  console.log(min_x, max_x)
 });
 class Bubble {
   constructor() {

@@ -1,0 +1,67 @@
+.card_container {
+  position : relative;
+  display : flex;
+  align-items : center;
+  justify-content : center;
+  padding : 30px;
+}
+
+.card_container .card {
+  position: relative;
+  height : 215px;
+  background-color : #fff;
+  margin : 30px 10px;
+  padding : 20px 15px;
+
+  display : flex;
+  flex-direction : column;
+  box-shadow : 0 5px 20px rgba(0,0,0,0.5);
+  transition : 0.3s ease-in-out;
+  border-radius : 15px;
+}
+.card_container .card:hover {
+  height: 500px;
+  transform: translateY(10%);
+}
+
+
+.card_container .card .image {
+  position : relative;
+  width : 80%;
+  top : -40%;
+  margin:auto;
+  box-shadow : 0 5px 20px rgba(0,0,0,0.2);
+  z-index : 1;
+}
+
+.card_container .card .image img {
+  max-width : 100%;
+}
+
+.card_container .card .content {
+  position : relative;
+  top : -40%;
+  padding : 10px 15px;
+  color : #111;
+  text-align : center;
+  font-size: 15px;
+
+  visibility : hidden;
+  opacity : 0;
+  transition : 0.3s ease-in-out;
+
+}
+
+.card_container .card:hover .content {
+   margin-top : 30px;
+   visibility : visible;
+   opacity : 1;
+   transition-delay: 0.2s;
+
+}
+.card_container .card .content .list{
+  text-align: left;
+}
+.card_container .card .content .link{
+  text-align: center;
+}

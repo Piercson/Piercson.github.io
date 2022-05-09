@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./public/css/style.css">
     <link rel="stylesheet" href="./public/css/bubble.css">
+    <link rel="stylesheet" href="./public/css/card.css">
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lato">
   </head>
@@ -55,15 +56,66 @@
       </div>
     </nav>
     <section>
-      <div class="section_title">
-        <h1>Projects</h1>
-      </div>
-      <div class="section_info">
-        You can click the Project Cards to open the corresponding Notebooks
+      <div class="row">
+        <div class="col-10">
+          <div class="section_title">
+              <h1>Projects</h1>
+          </div>
+        </div>
+    </section>
+    <section>
+      <!-- First Row -->
+      <div class="row">
+        <div class="col-5">
+          <div class = card_container>
+            <div class = card>
+              <div class = image>
+                <img href = "#" src ='assests/card_imgs/amt_monsters.png'>
+              </div>
+              <div class = content>
+                <h3>Monster Hunter Analysis</h3>
+                <p>Analysis of monsters from the series Monster Hunter from Capcom.
+                <br> Made in Jupyter Notebook using Python.</p>
+                <ul class="list" style="list-style-type:circle">
+                  <li>Collected data for the project</li>
+                  <li>Figure for Distribution of monsters throughtout the series</li>
+                  <li>Figure for Distribution of monster types</li>
+                  <li>Calculated the time between base and ultimate releases</li>
+                  <li>Looked into the differences between base and ultimate releases</li>
+                  <li>Checked if directors of the series favor their own monsters</li>
+                </ul>
+                <a class='link' href="MonsterHunter.html" target="_blank"> Click to See Notebook</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class = card_container>
+            <div class = card>
+              <div class = image style="width: 57%;">
+                <img href = "#" src ='assests/card_imgs/spam_word.png'>
+              </div>
+              <div class = content>
+                <h3>SMS Spam Detection</h3>
+                <p>Experimenting with classifiers on detecting if a SMS is spam!
+                <br> Made in Jupyter Notebook using Python.</p>
+                <ul class="list" style="list-style-type:circle">
+                  <li>Went step by step explained the process of creating various classifiers</li>
+                  <li>Cleaned text by removing stopping words and puncutation</li>
+                  <li>Tranformed text data into integers to use as features for the classifiers</li>
+                  <li>Used, Multinomial Naive Bays, Support Vector Machine and Linear Regression from ScikitLearn</li>
+                  <li>Created a Recurrant Nueral Network</li>
+                  <li>Evaluated performace by analyzing the classification report and heatmaps</li>
+                </ul>
+                <a class='link' href="spam_detection.html" target="_blank"> Click to See Notebook</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
       <!-- Monster HUnter Project -->
-      <section>
+      <!-- <section>
           <div class="card">
             <a class="card_a" href="MonsterHunter.html" target="_blank">
               <div class="row">
@@ -99,9 +151,9 @@
               </div>
             </a>
           </div>
-        </section>
+        </section> -->
         <!-- Spam Detection -->
-        <section>
+        <!-- <section>
             <div class="card">
               <a class="card_a" href="spam_detection.html" target="_blank">
                 <div class="row">
@@ -137,12 +189,13 @@
                 </div>
               </a>
             </div>
-          </section>
+          </section> -->
       <div id="app">
       </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="public/js/bubbles.js"></script>
+    <script src="public/js/card.js"></script>
   </body>
 </html>
