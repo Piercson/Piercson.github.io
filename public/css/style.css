@@ -10,37 +10,41 @@ body{
   font-size: 1rem;
   height: 100%;
   width: 100%;
-  /* position:relative; */
+  position:relative;
   padding: 0;
   margin: 0;
   background-color: #f1f0ec;
-  box-sizing: initial;
+  /* box-sizing: initial; */
 }
 header a{
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
 }
-#branding{
-}
 #name_pre {
-  font-size: 3vw;
+  font-size: 3.5rem;
+  margin: auto;
+  text-align: center;
   font-weight: 200;
 }
 #name_suf {
-  font-size: 3vw;
+  margin: auto;
+  text-align: center;
+  font-size: 3.5rem;
 }
 #info {
   margin: auto;
-  font-size: 1vw;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1rem;
 }
 .header_img{
-  width: 8vw;
-  padding-left: 2rem;
+  margin:auto;
+  height: 10.5rem;
+  padding: 0 2rem 2rem 0;
 }
 .link_img{
-  width: 1vw;
-  height: 1vw;
+  width: 1.5rem;
   margin: auto;
 }
 header a:hover{
@@ -48,8 +52,12 @@ header a:hover{
   font-weight: bold;
 }
 /* Nav */
+.nav{
+  margin: auto;
+  padding-left: 2rem;
+}
 .nav-link{
-  font-size: 1.5vw;
+  font-size: 1.5rem;
 }
 .flex-column{
   float:right;
@@ -63,6 +71,7 @@ header a:hover{
 }
 .container-fluid{
   margin: 0px 0px 0px 0px;
+  position:relative;
   background: #79A8D2;
   color: #ffffff;
   padding-top: 30px;
@@ -74,7 +83,8 @@ header a:hover{
   color: #ffffff;
 }
 nav{
-  width: 100%
+  width: 100%;
+  position:relative;
 }
 nav a:hover{
   color: #cccccc;

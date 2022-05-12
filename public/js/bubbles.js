@@ -1,13 +1,13 @@
 // Code Modified From https://dev.to/sandeshsapkota/creating-an-bubble-animation-with-javascript-na
 const root = document.querySelector("#app");
 let { innerHeight, innerWidth } = window;
-if (innerHeight < 300) {
-  innerHeight = 350;
-}
-if (innerWidth < 300) {
-  innerWidth = 750;
-}
-// Ready from https://stackoverflow.com/questions/799981/document-ready-equivalent-without-jquery
+// if (innerHeight < 300) {
+//   innerHeight = 350;
+// }
+// if (innerWidth < 300) {
+//   innerWidth = 750;
+// }
+// // Ready from https://stackoverflow.com/questions/799981/document-ready-equivalent-without-jquery
 var ready = (function(){
 
     var readyList,
@@ -239,7 +239,6 @@ var ready = (function(){
 // creating many bubble instance
 ready(function() {
   // If not mobile, Make bubbles!
-  if (innerWidth > 479) {
       var bubbleInterval = setInterval(function () {
         // var rnd = Math.floor(Math.random() * 2);
         // if(rnd == 1){
@@ -260,7 +259,6 @@ ready(function() {
         }
         n_vis_changes += 1;
       });
-  }
 });
 // Adjust bubble canvas when scrolling
 // var ticking = false;
@@ -295,7 +293,7 @@ const offset = 50;
 window.addEventListener('resize', function() {
   var n_innerWidth = window.innerWidth
   max_x = n_innerWidth * 0.225;
-  min_y = document.getElementById("navbar").offsetHeight;
+  min_y = document.getElementById("myNav").offsetHeight;
 });
 class Bubble {
   constructor() {
@@ -322,7 +320,7 @@ class Bubble {
     if(this.bubble_id % 2 == 0){
       max_x = window.innerWidth * 0.225;
     }
-    var min_y = document.getElementById("navbar").offsetHeight;
+    var min_y = document.getElementById("myNav").offsetHeight;
     var max_y = innerHeight - 100;
     var top = (window.pageYOffset || document.documentElement.scrollTop)  - (document.documentElement.clientTop || 0)
     if( top >= min_y){
@@ -344,7 +342,7 @@ class Bubble {
 
   handlePosition() {
     // Get positions the bubble can go
-    var min_y = document.getElementById("navbar").offsetHeight;
+    var min_y = document.getElementById("myNav").offsetHeight;
     var top = (window.pageYOffset || document.documentElement.scrollTop)  - (document.documentElement.clientTop || 0)
     if( top >= min_y){
       min_y = top;
@@ -358,7 +356,13 @@ class Bubble {
         this.gonna_pop = true;
       }
     }
+    var right_pos;
     const offset = 50;
+    if(this.posX + offset >= window.innerWidth - this.height){
+      right_pos = window.innerWidth - this.height;
+    }else{
+      right_pos = this.posX + (offset/2);
+    }
     // var random_y = this.randomNumber(this.posY, min_height);
     var random_y = max_height;
     // console.log(random_y, min_height, this.posY);
@@ -366,12 +370,12 @@ class Bubble {
     // Direction of Bubble
     if(this.id % 3 == 0){
       // Right
-      random_x = this.randomNumber(this.posX + offset, this.posX - (offset/2));
+      random_x = this.randomNumber(right_pos + (offset/2), this.posX - (offset/2));
     }else if (this.id % 3 == 1) {
       // Left
-      random_x = this.randomNumber(this.posX + (offset/2), this.posX  - offset);
+      random_x = this.randomNumber(right_pos, this.posX  - offset);
     }else{
-      random_x = this.randomNumber(this.posX + (offset/2), this.posX - offset);
+      random_x = this.randomNumber(right_pos, this.posX - offset);
     }
     this.bubbleSpan.style.backgroundColor = this.color;
     this.bubbleSpan.style.height = this.height + "px";

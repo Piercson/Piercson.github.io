@@ -1,6 +1,7 @@
 .card_container {
   position : relative;
   display : flex;
+  width: auto;
   align-items : center;
   justify-content : center;
   padding : 30px;
@@ -8,11 +9,13 @@
 
 .card_container .card {
   position: relative;
-  height : 13.438rem;
+  height : 10.438rem;
+  min-width: 18rem;
+  max-width: 28rem;
   background-color : #fff;
+  width: auto;
   margin : 30px 10px;
   padding : 20px 15px;
-
   display : flex;
   flex-direction : column;
   box-shadow : 0 5px 20px rgba(0,0,0,0.5);
@@ -27,7 +30,7 @@
 
 .card_container .card .image {
   position : relative;
-  width : 80%;
+  width: 80%;
   top : -40%;
   margin:auto;
   box-shadow : 0 5px 20px rgba(0,0,0,0.2);
@@ -35,7 +38,7 @@
 }
 
 .card_container .card .image img {
-  max-width : 100%;
+  max-width: 100%;
 }
 
 .card_container .card .content {
