@@ -260,39 +260,11 @@ ready(function() {
         n_vis_changes += 1;
       });
 });
-// Adjust bubble canvas when scrolling
-// var ticking = false;
-// document.addEventListener('scroll', function(e) {
-//   lastKnownScrollPosition = window.scrollY;
-//
-//   if (!ticking) {
-//     window.requestAnimationFrame(function() {
-//       innerHeight = window.innerHeight;
-//       innerWidth = window.innerWidth;
-//       var top = (window.pageYOffset || document.documentElement.scrollTop)  - (document.documentElement.clientTop || 0);
-//       if(top >= min_y){
-//         min_y = top;
-//         max_y = top + innerHeight;
-//       }else{
-//         min_y = document.getElementById("navbar").offsetHeight;
-//         max_y = innerHeight;
-//       }
-//       ticking = false;
-//     });
-//
-//     ticking = true;
-//   }
-// });
-// Bubble Canvas info
-// var min_x = 30;
-// var max_x = innerWidth * 0.225;
-// var min_y = document.getElementById("navbar").offsetHeight;
-// var max_y = innerHeight - 100;
 var bubble_id = 0;
 const offset = 50;
 window.addEventListener('resize', function() {
   var n_innerWidth = window.innerWidth
-  max_x = n_innerWidth * 0.225;
+  max_x = n_innerWidth * 0.75;
   min_y = document.getElementById("myNav").offsetHeight;
 });
 class Bubble {
@@ -316,7 +288,7 @@ class Bubble {
   handleNewBubble() {
     // Set Random Pos
     var min_x = 30;
-    var max_x = window.innerWidth * 0.5;
+    var max_x = window.innerWidth * 0.75;
     if(this.bubble_id % 2 == 0){
       max_x = window.innerWidth * 0.225;
     }
